@@ -1,0 +1,15 @@
+.app {
+    -fx-background-color: #f2f4f5;
+}
+
+.app__label {
+    -fx-fill: #1b1b1b;
+}
+
+.app__button {
+    -fx-fill: #1b1b1b;
+}
+
+.app__text-field {
+    -fx-fill: #1b1b1b;
+}

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.Pane?>
+
+<FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" styleClass="app" stylesheets="@../styles/app.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="davidponce.controllers.AppController">
+   <children>
+      <Pane prefHeight="553.0" prefWidth="552.0">
+         <children>
+            <Label layoutX="36.0" layoutY="29.0" styleClass="app__label" stylesheets="@../styles/app.css" text="Establecer la configuración de la máquina de Turing" />
+            <Button fx:id="loadConfigFileBtn" layoutX="36.0" layoutY="55.0" mnemonicParsing="false" onMouseClicked="#loadConfigurationRules" styleClass="app__button" stylesheets="@../styles/app.css" text="Cargar archivo de configuración">
+               <padding>
+                  <Insets bottom="8.0" left="12.0" right="12.0" top="8.0" />
+               </padding>
+            </Button>
+            <Label layoutX="36.0" layoutY="118.0" styleClass="app__label" stylesheets="@../styles/app.css" text="Cadena de entrada a ser evaluada" />
+            <TextField fx:id="inputStringField" layoutX="36.0" layoutY="145.0" prefHeight="25.0" prefWidth="330.0" promptText="0011" styleClass="app__text-field" stylesheets="@../styles/app.css">
+               <padding>
+                  <Insets bottom="8.0" left="12.0" right="12.0" top="8.0" />
+               </padding>
+            </TextField>
+            <Button fx:id="runMachineBtn" layoutX="390.0" layoutY="145.0" mnemonicParsing="false" onMouseClicked="#runMachineProcess" styleClass="app__button" stylesheets="@../styles/app.css" text="Encender máquina">
+               <padding>
+                  <Insets bottom="8.0" left="12.0" right="12.0" top="8.0" />
+               </padding>
+            </Button>
+            <TitledPane alignment="CENTER" collapsible="false" layoutY="223.0" prefHeight="331.0" prefWidth="552.0" text="Visor">
+               <content>
+                  <SplitPane disable="true" dividerPositions="0.7" prefHeight="160.0" prefWidth="200.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+                    </items>
+                  </SplitPane>
+               </content>
+            </TitledPane>
+         </children>
+      </Pane>
+   </children>
+   <padding>
+      <Insets bottom="24.0" left="24.0" right="24.0" top="24.0" />
+   </padding>
+</FlowPane>
