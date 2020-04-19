@@ -1,5 +1,6 @@
 package davidponce.controllers;
 
+import davidponce.objects.TuringMachine;
 import davidponce.utils.ConfigurationRules;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -18,13 +19,20 @@ public class AppController {
     @FXML
     private TextField inputStringField;
 
+    private TuringMachine turingMachine;
+
+    public AppController() {
+        turingMachine = new TuringMachine();
+    }
+
     public void loadConfigurationRules(MouseEvent mouseEvent) throws IOException {
         FileChooser chooser = new FileChooser();
         chooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("Text Files", "*.txt")
         );
         File file = chooser.showOpenDialog(loadConfigFileBtn.getScene().getWindow());
-        ConfigurationRules.setConfigurationRules(file);
+        ConfigurationRules.setConfigurationRules(file, turingMachine);
+
     }
 
     public void runMachineProcess(MouseEvent mouseEvent) {
