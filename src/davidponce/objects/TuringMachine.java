@@ -1,37 +1,45 @@
 package davidponce.objects;
 
 import java.util.List;
+import java.util.Map;
 
 public class TuringMachine {
-    private Integer states;
-    private Integer symbols;
+    private Integer statesNumber;
+    private Integer symbolsNumber;
     private List<String> alphabet;
+    private Map<Integer, Map<String, State>> table;
     private Integer initialState;
     private Integer finalState;
 
-    public Integer getStates() {
-        return states;
+    public Integer getStatesNumber() {
+        return statesNumber;
     }
 
-    public void setStates(Integer states) {
-        this.states = states;
+    public void setStatesNumber(Integer states) {
+        this.statesNumber = states;
     }
 
-    public Integer getSymbols() {
-        return symbols;
+    public Integer getSymbolsNumber() {
+        return symbolsNumber;
     }
 
-    public void setSymbols(Integer symbols) {
-        this.symbols = symbols;
+    public void setSymbolsNumber(Integer symbols) {
+        this.symbolsNumber = symbols;
     }
 
     public List<String> getAlphabet() {
         return alphabet;
     }
 
+    public String getAlphabetItem(int index) { return alphabet.get(index); }
+
     public void setAlphabet(List<String> alphabet) {
         this.alphabet = alphabet;
     }
+
+    public Map<Integer, Map<String, State>> getTable() { return table; }
+
+    public void setTable(Map<Integer, Map<String, State>> table) { this.table = table; }
 
     public Integer getInitialState() {
         return initialState;

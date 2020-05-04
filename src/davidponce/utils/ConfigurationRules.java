@@ -7,28 +7,40 @@ import java.io.*;
 import java.util.*;
 
 public class ConfigurationRules {
-    public static TuringMachine setConfigurationRules(File file, TuringMachine turingMachine) throws IOException {
+    public static void setConfigurationRules(
+            File file,
+            TuringMachine turingMachine
+    ) throws IOException {
         if(file.canRead()) {
             BufferedReader reader = new BufferedReader( new FileReader(file));
             List<String> line = Arrays.asList(reader.readLine().split(" "));
-            turingMachine.setStates(Integer.parseInt(line.get(0)));
-            turingMachine.setSymbols(Integer.parseInt(line.get(1)));
+            turingMachine.setStatesNumber(Integer.parseInt(line.get(0)));
+            turingMachine.setSymbolsNumber(Integer.parseInt(line.get(1)));
             line = Arrays.asList(reader.readLine().split(""));
             turingMachine.setAlphabet(line);
-            line = Arrays.asList(reader.readLine().split(" "));
-            for (int i = 0; i < turingMachine.getSymbols(); i++) {
-                new State(
-                    Integer.parseInt(line.get(i)),
-                    line.get(i + 1),
-                    line.get(i + 2)
-                );
+            Map<Integer, Map<String, State>> table = new HashMap<>();
+            for (int stateIndex = 0; stateIndex < turingMachine.getStatesNumber(); stateIndex++) {
+                line = Arrays.asList(reader.readLine().split(" "));
+                int j = 0;
+                Map<String, State> states = new HashMap<>();
+                for (int symbolIndex = 0; symbolIndex < turingMachine.getSymbolsNumber(); symbolIndex++) {
+                    states.put(turingMachine.getAlphabetItem(symbolIndex), new State(
+                            Integer.parseInt(line.get(j)),
+                            line.get(j + 1),
+                            Integer.parseInt(line.get(j + 2))
+                    ));
+                    table.put(stateIndex, states);
+                    j += 3;
+                }
             }
-            System.out.println(line);
-            Map<Integer, List<State>> table = new HashMap<>();
+            turingMachine.setTable(table);
+            line = Arrays.asList(reader.readLine().split(" "));
+            turingMachine.setInitialState(Integer.parseInt(line.get(0)));
+            line = Arrays.asList(reader.readLine().split(" "));
+            turingMachine.setFinalState(Integer.parseInt(line.get(0)));
         }else {
             // Alert (Error file)
             System.out.println("Alert (Error file)");
         }
-        return turingMachine;
     }
 }

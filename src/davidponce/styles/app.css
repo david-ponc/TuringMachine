@@ -13,3 +13,45 @@
 .app__text-field {
     -fx-fill: #1b1b1b;
 }
+
+.app__tape {
+    -fx-border-color: #1b1b1b;
+    -fx-border-width: 2;
+}
+
+.tape__item {
+    -fx-pref-width: 42px;
+    -fx-pref-height: 42px;
+    -fx-font-size: 18;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+    -fx-content-display: center;
+    -fx-text-alignment: center;
+    -fx-border-color: #1b1b1b;
+    -fx-border-width: 0 2 0 2;
+}
+
+.tape__item-selected {
+    -fx-pref-width: 42px;
+    -fx-pref-height: 42px;
+    -fx-font-size: 18;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+    -fx-content-display: center;
+    -fx-text-alignment: center;
+    -fx-border-color: #1b1b1b;
+    -fx-background-color: #1b1b1b;
+    -fx-text-fill: #f2f4f5;
+    -fx-border-width: 0 2 0 2;
+}
+
+.step-item {
+    -fx-font-size: 18;
+    -fx-fill: aquamarine;
+    -fx-alignment: center;
+    -fx-content-display: center;
+    -fx-text-alignment: center;
+    -fx-pref-width: 200;
+    -fx-padding: 10 0 0 10;
+    -fx-font-weight: bold;
+}
