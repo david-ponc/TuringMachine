@@ -2,7 +2,6 @@ package davidponce.utils;
 
 import davidponce.controllers.AppController;
 import javafx.application.Platform;
-
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -13,9 +12,7 @@ public class ResultsDesk {
                 try {
                     Thread.sleep(1000);
                 }catch(Exception e) { e.printStackTrace(); }
-                Platform.runLater(() -> {
-                    appController.addStep(step);
-                });
+                Platform.runLater(() -> appController.addStep(step));
             });
             //appController.validationNotify();
         };

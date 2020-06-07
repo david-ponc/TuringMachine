@@ -54,8 +54,15 @@ public class AppController {
             clear();
             ArrayList<String> symbols = new ArrayList<>(Arrays.asList(inputStringField.getText().split("")));
             Map<String, Object> result = inputEvaluation.evaluate(turingMachine, symbols);
-            ResultsDesk.showStepsList((List<String>)result.get("steps"), this);
-            ResultsDesk.showStatesTape((List<List<String>>)result.get("tapeStates"), (List<Integer>)result.get("pointerPositions") , this);
+            ResultsDesk.showStepsList(
+                    (List<String>)result.get("steps"),
+                    this
+            );
+            ResultsDesk.showStatesTape(
+                    (List<List<String>>)result.get("tapeStates"),
+                    (List<Integer>)result.get("pointerPositions") ,
+                    this
+            );
             validationNotify((Boolean)result.get("inputResult"));
         }else {
             System.out.println("Cadena de entrada no válida");
